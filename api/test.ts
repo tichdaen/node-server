@@ -1,10 +1,10 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
+import { DateTime } from "luxon";
 
+DateTime.now().setZone("Asia/Seoul")
 export default function handler(req: VercelRequest, res: VercelResponse): VercelResponse {
 
-    const date = new Date()
-    const now = `${date.getFullYear()}-${date.getMonth() - 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
-
+    const now = DateTime.now().toFormat("yyyy-LL-dd HH:mm:ss")
 
     return res.json({
         queries: req.query,
