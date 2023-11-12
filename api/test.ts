@@ -6,6 +6,8 @@ export default function handler(req: VercelRequest, res: VercelResponse): Vercel
 
     const now = DateTime.now().toFormat("yyyy-LL-dd HH:mm:ss")
 
+    res.setHeader("Access-Control-Allow-Origin", "*")
+
     return res.json({
         queries: req.query,
         cookies: req.cookies,
