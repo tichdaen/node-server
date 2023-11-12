@@ -1,7 +1,7 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import { DateTime } from "luxon";
+import {DateTime, Settings} from "luxon";
 
-DateTime.now().setZone("Asia/Seoul")
+Settings.defaultZone = "Asia/Seoul"
 export default function handler(req: VercelRequest, res: VercelResponse): VercelResponse {
 
     const now = DateTime.now().toFormat("yyyy-LL-dd HH:mm:ss")
